@@ -1,6 +1,7 @@
 target/
 .idea/
 out/
+logs/
 
 *.class
 *.iml
