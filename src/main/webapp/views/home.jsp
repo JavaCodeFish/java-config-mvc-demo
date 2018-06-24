@@ -5,6 +5,7 @@
 </head>
 <body>
 <h3>首页</h3>
+<a href="${pageContext.servletContext.contextPath}/download">进入下载</a>
 <h5>${pageContext.servletContext.contextPath}</h5>
 <label>${user.username}</label>
 </body>
