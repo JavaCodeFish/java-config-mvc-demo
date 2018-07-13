@@ -13,6 +13,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new Class[]{
                 RootConfig.class,
                 WebSecurityConfig.class
+//                MultiHttpSecurityConfig.class
         };
     }
 

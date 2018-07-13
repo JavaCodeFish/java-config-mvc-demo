@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%-- security 标签 --%>
+<%--<%@ taglib prefix='security' uri='http://www.springframework.org/security/tags'%>--%>
+
 <html>
 <head>
     <title>首页</title>
