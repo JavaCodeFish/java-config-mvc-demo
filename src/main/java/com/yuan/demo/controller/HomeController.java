@@ -32,4 +32,9 @@ public class HomeController {
         model.addAttribute("user",user);
         return "home";
     }
+
+    @RequestMapping("/admin")
+    public String admin(){
+        return "/admin";
+    }
 }

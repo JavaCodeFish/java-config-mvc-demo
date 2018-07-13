@@ -15,7 +15,7 @@
 <body>
 <div class="jinn-div">
     <label for="saveFolder">保存路径</label>
-    <input type="text" id="saveFolder" style="width: 1000px;" value="F:\J.Video\jp.porn.hub">
+    <input type="text" id="saveFolder" style="width: 1000px;" value="E:/J.Cache/pic">
 </div>
 <div class="jinn-div">
     <label for="url">下载连接</label>
@@ -80,7 +80,7 @@
                 $('#queryList').html(html);
             },
             error: function (data) {
-                alert("异常");
+                console.log("异常");
             }
         })
     }

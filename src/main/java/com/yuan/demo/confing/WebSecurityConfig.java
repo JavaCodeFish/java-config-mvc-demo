@@ -7,8 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import javax.sql.DataSource;
-
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -16,7 +14,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user").password("user").roles("USER").and()
+                .withUser("user2").password("user2").roles("USER").and()
+                .withUser("admin").password("admin").roles("ADMIN");
     }
 
     /*protected void configure(HttpSecurity http) throws Exception {
@@ -29,7 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable() // csrf不关掉, 下面配置的请求权限会出问题
                 .authorizeRequests()
+                .mvcMatchers("/assets/**", "/login").permitAll()
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .mvcMatchers("/download/**").hasRole("USER")
                 .anyRequest().authenticated().and()
                 .formLogin()
                 .loginPage("/login") // 指定登录页路径

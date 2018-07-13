@@ -22,7 +22,7 @@ public class DownloadController {
         return "download";
     }
 
-    @RequestMapping(value = "start", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/start", produces = "application/json;charset=utf-8")
     public @ResponseBody String start(String saveFloder, String url){
         ResponseMsg msg = new ResponseMsg();
         try {
@@ -42,7 +42,7 @@ public class DownloadController {
         return JsonUtil.toJsonString(msg);
     }
 
-    @RequestMapping(value = "query", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/query", produces = "application/json;charset=utf-8")
     public @ResponseBody String query(){
         List<DownloadInfo> list = new ArrayList<>();
         for (Map.Entry<String, Long> entry : DownloadUtil.DOWNLOAD_THREAD_LIST_MAP.entrySet()){
