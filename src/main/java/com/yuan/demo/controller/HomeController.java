@@ -21,6 +21,11 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "/login";
+    }
+
     @RequestMapping("/home")
     public String home(Model model){
         User user = userService.getByUserName("admin");
