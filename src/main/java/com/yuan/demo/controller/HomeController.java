@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HomeController {
+public class HomeController extends BaseController{
     private static final Logger logger = LoggerFactory.getLogger("HomeController");
     @Autowired
     private UserService userService;
@@ -32,6 +32,7 @@ public class HomeController {
 
     @RequestMapping("/home")
     public String home(Model model){
+        logger.info("从 security 容器中获取到的用户名: "+sessionUserName());
         User user = userService.getByUserName("admin");
         model.addAttribute("user",user);
         return "home";
